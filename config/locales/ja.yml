@@ -19,6 +19,7 @@ ja:
         avatar: プロフィール画像
         password: パスワード
         password_confirmation: パスワード再入力
+        urrent_password: 現在のパスワー
         remember_me: ログイン情報を記録する
     errors:
       messages:
