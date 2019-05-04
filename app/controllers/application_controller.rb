@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
-  def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to books_path, notice: "書籍を削除しました。"
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nick_name, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nick_name, :avatar])
   end
 end
